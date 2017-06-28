@@ -26,15 +26,15 @@ int main(){
 		//cout << IDcache[temp] << endl;
 	}
 	
-	for (int r = 1; r <= n; r++){
+	for (int r = 1; r <= n; r++){				//逐行扫描
 		for (int c1 = 1; c1 <= m; c1++){
 			int idx1 = (r - 1) * m + c1 - 1;
 			int ID1 = IDcache[data_string[idx1]];
-			for (int c2 =c1+1; c2 <= m; c2++){
+			for (int c2 =c1+1; c2 <= m; c2++){      //从题目分析可以看到，c1与c2一直在同一行，但是c2不会等于c2，必须保持c1和c2的不一致
 				Set s;
 				int idx2 = (r - 1)*m + c2 - 1;
-				int ID2 = IDcache[data_string[idx2]];
-				s.insert(ID1);
+				int ID2 = IDcache[data_string[idx2]];   //取出字符串的ID值
+				s.insert(ID1);				//在集合s中存储两个ID值
 				s.insert(ID2);
 
 				if (!set_map.count(s)){
