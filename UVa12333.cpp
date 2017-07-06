@@ -5,13 +5,12 @@
 
 using namespace std;
 
+int a[100000];
 int fibo(int n){
-	if (n == 0 || n == 1){
-		return 1;
-	}
-	else{
-		return fibo(n - 1) + fibo(n - 2);
-	}
+	a[0] = 1;
+	a[1] = 1;
+	a[n] = a[n - 1] + a[n - 2];
+	return a[n];
 }
 
 void to_string_1(string& result, const int& t){
@@ -26,6 +25,7 @@ int main(){
 	cin >> n;
 	to_string_1(n_str, n);
 	while (count <= 100000){
+		//cout << count << endl;
 		int int_temp = fibo(count);
 		string str_temp;
 		to_string_1(str_temp, int_temp);
